@@ -53,6 +53,26 @@ Deferred.prototype.makeNodeResolver = function () {
     }
 }
 
+Deferred.prototype.all = function (promises) {
+    var count = promises.length;
+    var that = this;
+    var results = [];
+
+    promises.forEach(function (promise, i) {
+        promise.then(data => {
+            count --;
+            results[i] = data;
+            if (count === 0) {
+                that.resolve(results);
+            }
+        }, err => {
+            that.reject(err);
+        })
+    });
+    
+    return this.promise;
+}
+
 module.exports = {
     Promise,
     Deferred

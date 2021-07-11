@@ -1,10 +1,10 @@
 const fs = require('fs');
-const { Promise, Deferred } = require('./core');
+const { Deferred } = require('./core');
 
 // 改造前写法
-fs.readFile('./1.txt', 'utf-8', (err, data) => {
-    console.log(data);
-});
+// fs.readFile('./1.txt', 'utf-8', (err, data) => {
+//     console.log(data);
+// });
 
 // 改造后写法
 var readFile = function (file, encoding) {
