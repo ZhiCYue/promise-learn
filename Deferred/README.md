@@ -15,5 +15,5 @@ $.get('/api', {
 
 ## 其他相关模型
 
-随着使用 Promise/Deferred 模式的应用逐渐增多，CommonJS 草案逐步抽象出了响应的演变模型：
+随着使用 Promise/Deferred 模式的应用逐渐增多，CommonJS 草案逐步抽象出了相应的演变模型：
 Promise/A、Promise/B、Promise/D.

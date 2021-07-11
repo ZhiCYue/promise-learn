@@ -1,0 +1,23 @@
+{
+  "name": "promise-learn",
+  "version": "1.0.0",
+  "description": "promise 原理解析",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhiCYue/promise-learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhiCYue/promise-learn/issues"
+  },
+  "homepage": "https://github.com/ZhiCYue/promise-learn#readme",
+  "dependencies": {
+    "q": "^1.5.1"
+  }
+}
