@@ -7,7 +7,7 @@ var readFile = function (file, encoding) {
     return deferred.promise;
 }
 
-readFile('./1.txt', 'utf-8').then(data => {
+readFile('./files//1.txt', 'utf-8').then(data => {
     // success case
     console.log(data);
 }, err => {

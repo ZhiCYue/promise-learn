@@ -13,7 +13,7 @@ var readFile = function (file, encoding) {
     return deferred.promise;
 }
 
-readFile('./1.txt', 'utf-8').then(function(data) {
+readFile('./files/1.txt', 'utf-8').then(function(data) {
     // success
     console.log(data);
 }, function(err) {
