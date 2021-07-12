@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ZhiCYue/promise-learn#readme",
   "dependencies": {
+    "connect": "^3.7.0",
+    "cookie-session": "^1.4.0",
     "q": "^1.5.1"
   }
 }
