@@ -14,4 +14,4 @@ Promise/A 规范示例代码
 >尾触发用的较多的地方是 connect 的中间件。
 
 ## Async
-知名的异步编程流程控制模块 async。
+知名的异步编程流程控制模块 async。其他的还有 Step、wind 等。
