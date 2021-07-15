@@ -1,7 +1,9 @@
 var when = require('when');
 // var rest = require('rest');
 
-when.reduce(when.map(getRemoteNumberList(), times10), sum)
+var arr = when.map(getRemoteNumberList(), times10);
+console.log(arr);
+when.reduce(arr, sum)
     .done(function(result) {
         console.log(result);
     });
