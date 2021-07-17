@@ -6,3 +6,7 @@
 2. 只接收 function 的参数。
 3. 返回 Promise 对象，以链式调用。
 4. 可选性的支持 progress。
+
+
+## referance
+[https://promisesaplus.com/](https://promisesaplus.com/)
