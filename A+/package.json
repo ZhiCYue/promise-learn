@@ -1,0 +1,14 @@
+{
+  "name": "promiseaplus",
+  "version": "1.0.0",
+  "description": "[https://juejin.cn/post/6844903625769091079#comment](https://juejin.cn/post/6844903625769091079#comment) [https://promisesaplus.com/](https://promisesaplus.com/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "promises-aplus-tests index.2.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  }
+}

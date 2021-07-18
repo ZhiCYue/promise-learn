@@ -92,7 +92,7 @@ class Promise {
 function resolvePromise(promise2, x, resolve, reject) {
     // 循环引用
     if (x === promise2) {
-        return reject(new Error('Chaining cycle detected for promise'));
+        return reject(new TypeError('Chaining cycle detected for promise'));
     }
 
     // 防止多次调用
@@ -103,14 +103,7 @@ function resolvePromise(promise2, x, resolve, reject) {
         return;
     }
 
-    // 这里不处理 function 包含 then 属性的方法的场景
-    // 如果考虑，则需要修改逻辑就和 object 一样
-    if (typeof x === 'function') {
-        resolve(x);
-        return;
-    }
-
-    if (typeof x === 'object') {
+    if (typeof x === 'object' || typeof x === 'function') {
         // A+ 规定，声明 then = x 的 then 方法
         let then = x.then;
         if (typeof then === 'function') {
@@ -135,6 +128,56 @@ function resolvePromise(promise2, x, resolve, reject) {
             resolve(x);
         }
     }
+}
+
+Promise.resolve = function (val) {
+    return new Promise((resolve, reject) => {
+        resolve(val);
+    });
+}
+
+Promise.reject = function (val) {
+    return new Promise((resolve, reject) => {
+        reject(val);
+    });
+}
+
+Promise.race = function (promises) {
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < promises.length; i++) {
+            promises[i].then(resolve, reject);
+        }
+    })
+}
+
+Promise.all = function (promises) {
+    let arr = [];
+    let i = 0;
+
+    function processData(index, data) {
+        arr[index] = data;
+        i++;
+        if (i === promises.length) {
+            resolve(arr);
+        }
+    }
+
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < promises.length; i++) {
+            promises[i].then(data => {
+                processData(i, data);
+            }, reject);
+        }
+    })
+}
+
+Promise.defer = Promise.deferred = function () {
+    let dfd = {};
+    dfd.promise = new Promise((resolve, reject) => {
+        dfd.resolve = resolve;
+        dfd.reject = reject;
+    });
+    return dfd;
 }
 
 module.exports = Promise;
